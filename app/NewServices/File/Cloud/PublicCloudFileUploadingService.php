@@ -17,22 +17,15 @@ class PublicCloudFileUploadingService
 
     public function upload(string $catalog, UploadedFile $file): UploadedFileDTO
     {
-        return new UploadedFileDTO(
-            disk: $this->getDisk(),
-            relative_path: $this->getRelativePath($catalog, $file),
-        );
-    }
-
-    private function getDisk(): string
-    {
-        return 's3_public';
-    }
-
-    private function getRelativePath(string $catalog, UploadedFile $file): string
-    {
-        return $this
+        $disk = 's3_public';
+        $relative_path = $this
             ->storage
-            ->disk($this->getDisk())
+            ->disk($disk)
             ->putFile($catalog, $file);
+
+        return new UploadedFileDTO(
+            disk: $disk,
+            relative_path: $relative_path,
+        );
     }
 }
