@@ -3,9 +3,9 @@
 namespace App\Interfaces;
 
 use App\DataTransferObject\File\Uploading\UploadedFileDTO;
-use Illuminate\Http\UploadedFile;
+use App\DataTransferObject\File\Uploading\UploadFileDTO;
 
 interface FileUploadingService
 {
-    public function upload(string $visibility, string $catalog, UploadedFile $file): UploadedFileDTO;
+    public function upload(UploadFileDTO $dto): UploadedFileDTO;
 }

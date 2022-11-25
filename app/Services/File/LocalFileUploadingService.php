@@ -3,31 +3,35 @@
 namespace App\Services\File;
 
 use App\DataTransferObject\File\Uploading\UploadedFileDTO;
+use App\DataTransferObject\File\Uploading\UploadFileDTO;
 use App\Enums\File\FileVisibilityEnum;
 use App\Interfaces\FileUploadingService;
 use App\Services\File\Local\PrivateLocalFileUploadingService;
 use App\Services\File\Local\PublicLocalFileUploadingService;
-use Illuminate\Http\UploadedFile;
 
 class LocalFileUploadingService implements FileUploadingService
 {
-    private PublicLocalFileUploadingService $publicFileUploadingService;
+    private PublicLocalFileUploadingService $publicService;
 
-    private PrivateLocalFileUploadingService $privateFileUploadingService;
+    private PrivateLocalFileUploadingService $privateService;
 
     public function __construct(
-        PublicLocalFileUploadingService $publicFileUploadingService,
-        PrivateLocalFileUploadingService $privateFileUploadingService,
+        PublicLocalFileUploadingService $publicService,
+        PrivateLocalFileUploadingService $privateService,
     ) {
-        $this->publicFileUploadingService = $publicFileUploadingService;
-        $this->privateFileUploadingService = $privateFileUploadingService;
+        $this->publicService = $publicService;
+        $this->privateService = $privateService;
     }
 
-    public function upload(string $visibility, string $catalog, UploadedFile $file): UploadedFileDTO
+    public function upload(UploadFileDTO $dto): UploadedFileDTO
     {
-        return match ($visibility) {
-            FileVisibilityEnum::Public->value => $this->publicFileUploadingService->upload($catalog, $file),
-            FileVisibilityEnum::Private->value => $this->privateFileUploadingService->upload($catalog, $file),
+        return match ($dto->visibility) {
+            FileVisibilityEnum::Public => $this
+                ->publicService
+                ->upload($dto->catalog, $dto->file),
+            FileVisibilityEnum::Private => $this
+                ->privateService
+                ->upload($dto->catalog, $dto->file),
         };
     }
 }

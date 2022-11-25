@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\File\FileVisibilityEnum;
+use Carbon\CarbonImmutable;
 use DateTime;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,14 +30,6 @@ class File extends Model
 
     protected $table = 'files';
 
-    protected $fillable = [
-        'original_name',
-        'relative_path',
-        'disk',
-        'scope',
-        'visibility',
-    ];
-
     protected $casts = [
         'visibility' => FileVisibilityEnum::class,
     ];
@@ -46,7 +39,7 @@ class File extends Model
         return Attribute::get(function () {
             return match ($this->visibility) {
                 FileVisibilityEnum::Public => Storage::disk($this->disk)->url($this->relative_path),
-                FileVisibilityEnum::Private => Storage::disk($this->disk)->temporaryUrl($this->relative_path, now()->addMinute()),
+                FileVisibilityEnum::Private => Storage::disk($this->disk)->temporaryUrl($this->relative_path, CarbonImmutable::now()->addMinute()),
             };
         });
     }

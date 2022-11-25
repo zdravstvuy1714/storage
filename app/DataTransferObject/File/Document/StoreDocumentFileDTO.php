@@ -7,13 +7,10 @@ use Illuminate\Validation\Rules\File;
 
 class StoreDocumentFileDTO extends StoreFileDTO
 {
-    public static function rules(): array
+    static protected function getFileRules(): array
     {
         return [
-            'file' => [
-                'required',
-                File::types(['zip,csv,doc,docx,gif,jpe,jpeg,jpg,json,log,pdf,png,ppt,pptx,saz,txt,xls,xlsx,xml'])->max(5 * 1024),
-            ],
+            File::types(['jpg,png,txt,pdf,docx,pptx,xlsx'])->max(5 * 1024),
         ];
     }
 }

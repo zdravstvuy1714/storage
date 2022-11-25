@@ -8,18 +8,15 @@ use Illuminate\Validation\Rules\File;
 
 class StoreAvatarFileDTO extends StoreFileDTO
 {
-    public static function rules(): array
+    static protected function getFileRules(): array
     {
         return [
-            'file' => [
-                'required',
-                File::image()
-                    ->max(1024)
-                    ->dimensions(Rule::dimensions()
-                        ->maxWidth(512)
-                        ->maxHeight(512)
-                    ),
-            ],
+            File::image()
+                ->max(1024)
+                ->dimensions(Rule::dimensions()
+                    ->maxWidth(512)
+                    ->maxHeight(512)
+                ),
         ];
     }
 }

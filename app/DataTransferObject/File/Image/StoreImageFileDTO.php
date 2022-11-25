@@ -7,13 +7,10 @@ use Illuminate\Validation\Rules\File;
 
 class StoreImageFileDTO extends StoreFileDTO
 {
-    public static function rules(): array
+    static protected function getFileRules(): array
     {
         return [
-            'file' => [
-                'required',
-                File::image()->max(5 * 1024),
-            ],
+            File::image()->max(5 * 1024),
         ];
     }
 }
