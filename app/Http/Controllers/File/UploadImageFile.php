@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\File;
 
-use App\Actions\File\StoreImageFileAction;
-use App\DataTransferObject\File\Image\StoreImageFileDTO;
+use App\Actions\File\Scope\StoreImageFileAction;
+use App\DataTransferObject\File\FIle\Image\StoreImageFileDTO;
 use App\Transformers\File\FileTransformer;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

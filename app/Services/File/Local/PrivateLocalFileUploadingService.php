@@ -2,30 +2,12 @@
 
 namespace App\Services\File\Local;
 
-use App\DataTransferObject\File\Uploading\UploadedFileDTO;
-use Illuminate\Filesystem\FilesystemManager;
-use Illuminate\Http\UploadedFile;
+use App\Services\File\FileUploadingService;
 
-class PrivateLocalFileUploadingService
+class PrivateLocalFileUploadingService extends FileUploadingService
 {
-    private FilesystemManager $storage;
-
-    public function __construct(FilesystemManager $storage)
+    protected function getDisk(): string
     {
-        $this->storage = $storage;
-    }
-
-    public function upload(string $catalog, UploadedFile $file): UploadedFileDTO
-    {
-        $disk = 'local_private';
-        $relative_path = $this
-            ->storage
-            ->disk($disk)
-            ->putFile($catalog, $file);
-
-        return new UploadedFileDTO(
-            disk: $disk,
-            relative_path: $relative_path,
-        );
+        return 'local_private';
     }
 }

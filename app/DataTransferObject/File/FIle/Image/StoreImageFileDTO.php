@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataTransferObject\File\Image;
+namespace App\DataTransferObject\File\FIle\Image;
 
-use App\DataTransferObject\File\StoreFileDTO;
+use App\DataTransferObject\File\FIle\StoreFileDTO;
 use Illuminate\Validation\Rules\File;
 
 class StoreImageFileDTO extends StoreFileDTO

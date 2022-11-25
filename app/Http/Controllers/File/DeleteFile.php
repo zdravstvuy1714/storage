@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\File;
 
+use App\Actions\File\DeleteFileAction;
 use Illuminate\Http\JsonResponse;
 
 class DeleteFile
 {
-    public function __invoke(int $id): JsonResponse
+    public function __invoke(int $id, DeleteFileAction $action): JsonResponse
     {
-        return response()->json(['action' => 'destroy']);
+        $action->execute($id);
+
+        return response()->json();
     }
 }

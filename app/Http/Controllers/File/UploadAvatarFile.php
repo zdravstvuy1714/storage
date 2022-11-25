@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\File;
 
-use App\Actions\File\StoreAvatarFileAction;
-use App\DataTransferObject\File\Avatar\StoreAvatarFileDTO;
+use App\Actions\File\Scope\StoreAvatarFileAction;
+use App\DataTransferObject\File\FIle\Avatar\StoreAvatarFileDTO;
 use App\Transformers\File\FileTransformer;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

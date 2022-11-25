@@ -11,6 +11,7 @@ class FileTransformer extends TransformerAbstract
     {
         return [
             'id' => $file->id,
+            'original_name' => $file->original_name,
             'absolute_path' => $file->absolute_path,
             'relative_path' => $file->relative_path,
         ];

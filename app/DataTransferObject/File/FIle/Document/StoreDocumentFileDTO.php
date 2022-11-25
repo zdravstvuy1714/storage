@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataTransferObject\File\Document;
+namespace App\DataTransferObject\File\FIle\Document;
 
-use App\DataTransferObject\File\StoreFileDTO;
+use App\DataTransferObject\File\FIle\StoreFileDTO;
 use Illuminate\Validation\Rules\File;
 
 class StoreDocumentFileDTO extends StoreFileDTO

@@ -1,23 +1,21 @@
 <?php
 
-namespace App\Services\File;
+namespace App\Services\File\Local;
 
 use App\DataTransferObject\File\Uploading\UploadedFileDTO;
 use App\DataTransferObject\File\Uploading\UploadFileDTO;
 use App\Enums\File\FileVisibilityEnum;
-use App\Interfaces\FileUploadingService;
-use App\Services\File\Cloud\PrivateCloudFileUploadingService;
-use App\Services\File\Cloud\PublicCloudFileUploadingService;
+use App\Interfaces\Services\File\FileUploadingService;
 
-class CloudFileUploadingService implements FileUploadingService
+class LocalFileUploadingService implements FileUploadingService
 {
-    private PublicCloudFileUploadingService $publicService;
+    private PublicLocalFileUploadingService $publicService;
 
-    private PrivateCloudFileUploadingService $privateService;
+    private PrivateLocalFileUploadingService $privateService;
 
     public function __construct(
-        PublicCloudFileUploadingService $publicService,
-        PrivateCloudFileUploadingService $privateService,
+        PublicLocalFileUploadingService $publicService,
+        PrivateLocalFileUploadingService $privateService,
     ) {
         $this->publicService = $publicService;
         $this->privateService = $privateService;

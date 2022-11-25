@@ -2,14 +2,14 @@
 
 namespace App\Actions\File;
 
-use App\DataTransferObject\File\StoreFileDTO;
+use App\DataTransferObject\File\FIle\StoreFileDTO;
 use App\DataTransferObject\File\Uploading\UploadFileDTO;
-use App\Interfaces\FileUploadingService;
+use App\Interfaces\Services\File\FileUploadingService;
 use App\Models\File;
 
 abstract class StoreFileAction
 {
-    private FileUploadingService $service;
+    protected FileUploadingService $service;
 
     public function __construct(FileUploadingService $service)
     {

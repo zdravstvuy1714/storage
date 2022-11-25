@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataTransferObject\File;
+namespace App\DataTransferObject\File\FIle;
 
 use App\Enums\File\FileVisibilityEnum;
 use Illuminate\Http\UploadedFile;

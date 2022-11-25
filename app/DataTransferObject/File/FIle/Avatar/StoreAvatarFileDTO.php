@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataTransferObject\File\Avatar;
+namespace App\DataTransferObject\File\FIle\Avatar;
 
-use App\DataTransferObject\File\StoreFileDTO;
+use App\DataTransferObject\File\FIle\StoreFileDTO;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 

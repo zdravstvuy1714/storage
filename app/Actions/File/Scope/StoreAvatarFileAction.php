@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Actions\File;
+namespace App\Actions\File\Scope;
+
+use App\Actions\File\StoreFileAction;
 
 class StoreAvatarFileAction extends StoreFileAction
 {
     protected function getCatalog(): string
     {
-        return config('uploads.avatars.scope');
+        return config('uploads.avatars.catalog');
     }
 
     protected function getScope(): string
