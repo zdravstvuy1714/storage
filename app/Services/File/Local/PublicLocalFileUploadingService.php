@@ -1,12 +1,12 @@
 <?php
 
-namespace App\NewServices\File\Cloud;
+namespace App\Services\File\Local;
 
 use App\DataTransferObject\File\Uploading\UploadedFileDTO;
 use Illuminate\Filesystem\FilesystemManager;
 use Illuminate\Http\UploadedFile;
 
-class PublicCloudFileUploadingService
+class PublicLocalFileUploadingService
 {
     private FilesystemManager $storage;
 
@@ -17,7 +17,7 @@ class PublicCloudFileUploadingService
 
     public function upload(string $catalog, UploadedFile $file): UploadedFileDTO
     {
-        $disk = 's3_public';
+        $disk = 'local_public';
         $relative_path = $this
             ->storage
             ->disk($disk)

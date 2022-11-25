@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Interfaces\FileUploadingService;
-use App\NewServices\File\CloudFileUploadingService;
-use App\NewServices\File\LocalFileUploadingService;
+use App\Services\File\CloudFileUploadingService;
+use App\Services\File\LocalFileUploadingService;
 use Illuminate\Support\ServiceProvider;
 
 class FileServiceProvider extends ServiceProvider

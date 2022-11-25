@@ -1,6 +1,6 @@
 <?php
 
-namespace App\NewServices\File\Cloud;
+namespace App\Services\File\Cloud;
 
 use App\DataTransferObject\File\Uploading\UploadedFileDTO;
 use Illuminate\Filesystem\FilesystemManager;

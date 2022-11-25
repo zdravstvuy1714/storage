@@ -1,12 +1,12 @@
 <?php
 
-namespace App\NewServices\File;
+namespace App\Services\File;
 
 use App\DataTransferObject\File\Uploading\UploadedFileDTO;
 use App\Enums\File\FileVisibilityEnum;
 use App\Interfaces\FileUploadingService;
-use App\NewServices\File\Cloud\PrivateCloudFileUploadingService;
-use App\NewServices\File\Cloud\PublicCloudFileUploadingService;
+use App\Services\File\Cloud\PrivateCloudFileUploadingService;
+use App\Services\File\Cloud\PublicCloudFileUploadingService;
 use Illuminate\Http\UploadedFile;
 
 class CloudFileUploadingService implements FileUploadingService

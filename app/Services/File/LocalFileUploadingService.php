@@ -1,12 +1,12 @@
 <?php
 
-namespace App\NewServices\File;
+namespace App\Services\File;
 
 use App\DataTransferObject\File\Uploading\UploadedFileDTO;
 use App\Enums\File\FileVisibilityEnum;
 use App\Interfaces\FileUploadingService;
-use App\NewServices\File\Local\PrivateLocalFileUploadingService;
-use App\NewServices\File\Local\PublicLocalFileUploadingService;
+use App\Services\File\Local\PrivateLocalFileUploadingService;
+use App\Services\File\Local\PublicLocalFileUploadingService;
 use Illuminate\Http\UploadedFile;
 
 class LocalFileUploadingService implements FileUploadingService
